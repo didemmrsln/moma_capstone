@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: moma_raw
+    description: "MoMA capstone projesi ham veri kaynağı (BigQuery, moma_raw dataset)"
+    database: moma-capstone
+    schema: moma_raw
+    tables:
+      - name: artworks
+        description: "MoMA eser koleksiyonu, Date temizliği yapılmış hali (extracted_year, has_production_note, year_confidence sütunları eklendi)"
+      - name: artists
+        description: "MoMA sanatçı/kurum listesi (ham hal, ArtistBio filtresi henüz uygulanmadı)"
+      - name: wikidata_enrichment
+        description: "Wikidata SPARQL sorgusundan gelen akım/doğum yeri/uyruk verisi, artist_qid üzerinden bağlanır"
+      - name: uyruk_cografya_sozlugu
+        description: "Nationality değerlerini ülke/bölge isimlerine eşleyen manuel sözlük"
+      - name: artwork_artist_link
+        description: "Çoklu sanatçılı eserleri ayrıştıran köprü tablo (ObjectID, ConstituentID)"
